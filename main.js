@@ -1,21 +1,85 @@
 'use strict';
 
+const vowel = ['a', 'i' ,'o', 'e', 'u']
+const vowelY = ['y']
+
 // brings in the assert module for unit testing
 const assert = require('assert');
 // brings in the readline module to access the command line
 const readline = require('readline');
+const { exception } = require('console');
 // use the readline module to print out to the command line
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
+ 
+
+// const wordIntake = (word) => {
+  
+// }
+
 
 
 const pigLatin = (word) => {
-
-  // Your code here
+  let splitWord = word.toLowerCase().trim().split('') 
+  
+  if (vowel.includes(splitWord[0])) {
+    return vowelFirst(splitWord)
+  } else {
+    return consonantFirst(splitWord)
+  } 
 
 }
+
+const vowelFirst = (vowelWord) => {
+  let vowelPig = vowelWord.join('') + 'yay'
+  return vowelPig
+}
+ 
+const consonantFirst = (consonantWord) => {
+  
+  let consonantPig = consonantWord.join('')
+
+  for (let i = 0; i < consonantPig.length; i++) {
+    if (vowel.includes(consonantPig[i])) {
+      return consonantPig.slice([i]) + consonantPig.slice(0, [i]) + 'ay';  
+  }
+}
+  // if (vowel.includes(consonantPig[1])) {
+  //  return consonantPig.slice(1) + consonantPig.slice(0, 1) + 'ay';
+  // } else if ((vowel.includes(consonantPig[2]))) {
+  //   return consonantPig.slice(2) + consonantPig.slice(0, 2) + 'ay';
+  // } else if ((vowel.includes(consonantPig[3]))) {
+  //   return consonantPig.slice(3) + consonantPig.slice(0, 3) + 'ay';
+  // } else if ((vowel.includes(consonantPig[4]))) {
+  //   return consonantPig.slice(4) + consonantPig.slice(0, 4) + 'ay';
+  // }
+
+// TODO
+// create exception for y in pig latin when it is the vowel
+//  += y || -= y
+//  if the vowel exists at the end of the array
+}
+
+
+
+
+
+
+
+
+
+
+
+
+// const pigLatin = (word) => {
+
+
+//   // if (splitWord === vowelArray)
+  
+
+// }
 
 // the first function called in the program to get an input from the user
 // to run the function use the command: node main.js
